@@ -36,7 +36,7 @@ Add to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-torrust-linting = { git = "https://github.com/torrust/torrust-linting" }
+torrust-linting = "0.1.0"
 ```
 
 #### Option 1: Use the complete CLI (easiest)

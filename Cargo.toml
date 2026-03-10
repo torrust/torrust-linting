@@ -5,14 +5,15 @@ edition = "2021"
 rust-version = "1.85"
 default-run = "linter"
 description = "Linting utilities for Torrust projects"
-authors = [ "Torrust Organization <https://torrust.com>" ]
+authors = ["Torrust Organization <https://torrust.com>"]
 documentation = "https://docs.rs/torrust-linting"
 homepage = "https://torrust.com"
 repository = "https://github.com/torrust/torrust-linting"
 license = "MIT"
-keywords = [ "torrust", "linting", "cli" ]
-categories = [ "development-tools", "command-line-utilities" ]
-include = [ "/src", "/examples", "LICENSE", "README.md" ]
+readme = "README.md"
+keywords = ["torrust", "linting", "cli"]
+categories = ["development-tools", "command-line-utilities"]
+include = ["/src", "/examples", "LICENSE", "README.md"]
 
 [lib]
 name = "torrust_linting"
@@ -24,6 +25,6 @@ path = "src/bin/linter.rs"
 
 [dependencies]
 anyhow = "1.0"
-clap = { version = "4.0", features = [ "derive" ] }
+clap = { version = "4.0", features = ["derive"] }
 tracing = "0.1"
-tracing-subscriber = { version = "0.3", features = [ "env-filter" ] }
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
