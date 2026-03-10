@@ -1,0 +1,14 @@
+clippy
+cspell
+dtolnay
+markdownlint
+noconfirm
+pacman
+rustfmt
+rustup
+SCRIPTDIR
+shellcheck
+Swatinem
+taplo
+torrust
+yamllint
