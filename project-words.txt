@@ -2,6 +2,7 @@ clippy
 cspell
 dtolnay
 markdownlint
+MSRV
 noconfirm
 pacman
 rustfmt
