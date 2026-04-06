@@ -1,10 +1,12 @@
 clippy
 cspell
 dtolnay
+eprintln
 markdownlint
 MSRV
 noconfirm
 pacman
+println
 rustfmt
 rustup
 SCRIPTDIR
