@@ -6,7 +6,7 @@ A unified linting library and CLI for Torrust projects. Provides a single binary
 
 ## Features
 
-- **Multiple Linters**: Markdown, YAML, TOML, Rust (clippy + rustfmt), shell scripts, and spell checking
+- **Multiple Linters**: Markdown, local Markdown links, YAML, TOML, Rust (clippy + rustfmt), shell scripts, and spell checking
 - **CLI Ready**: Pre-built CLI binary (`linter`) with subcommands for each linter
 - **Library**: Use individual linter functions in your own Rust code or build a custom CLI
 - **Extensible**: Easy to add new linters
@@ -21,6 +21,7 @@ Run the `linter` binary directly:
 ```sh
 cargo run             # Run all linters (default)
 cargo run -- markdown   # Run markdown linter
+cargo run -- lychee     # Check local Markdown links and fragments offline
 cargo run -- yaml       # Run YAML linter
 cargo run -- toml       # Run TOML linter
 cargo run -- cspell     # Run CSpell spell checker
@@ -88,6 +89,7 @@ Some linters delegate to external tools. The library will attempt to install mis
 | Linter      | Tool                        | Install                                          |
 | ----------- | --------------------------- | ------------------------------------------------ |
 | Markdown    | `markdownlint`              | `npm install -g markdownlint-cli`                |
+| Local links | `lychee`                    | `cargo install lychee`                           |
 | YAML        | `yamllint`                  | `apt install yamllint` / `pip3 install yamllint` |
 | TOML        | `taplo`                     | `cargo install taplo-cli --locked`               |
 | Spell check | `cspell`                    | `npm install -g cspell`                          |
@@ -101,9 +103,15 @@ The linters read configuration from well-known files in the working directory:
 | File                 | Used by      |
 | -------------------- | ------------ |
 | `.markdownlint.json` | markdownlint |
+| `lychee.toml`        | lychee       |
 | `.yamllint-ci.yml`   | yamllint     |
 | `.taplo.toml`        | taplo        |
 | `cspell.json`        | cspell       |
+
+`linter lychee` always passes Lychee's `--offline` flag. This makes normal linting deterministic:
+it checks only local Markdown links. Configure local fragment checking and repository-specific
+exclusions in `lychee.toml`; use the Lychee executable directly from a separately configured,
+advisory scheduled workflow when checking external URLs.
 
 ## License
 

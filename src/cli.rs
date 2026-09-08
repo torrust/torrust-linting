@@ -3,8 +3,8 @@ use clap::{Parser, Subcommand};
 use tracing::{error, info, Level};
 
 use crate::linters::{
-    run_clippy_linter, run_cspell_linter, run_markdown_linter, run_rustfmt_linter, run_shellcheck_linter, run_toml_linter,
-    run_yaml_linter,
+    run_clippy_linter, run_cspell_linter, run_lychee_linter, run_markdown_linter, run_rustfmt_linter, run_shellcheck_linter,
+    run_toml_linter, run_yaml_linter,
 };
 
 /// Initialize tracing with default configuration
@@ -49,6 +49,9 @@ pub enum Commands {
     #[command(alias = "md")]
     Markdown,
 
+    /// Check local Markdown links and fragments using lychee
+    Lychee,
+
     /// Run YAML linter
     Yaml,
 
@@ -89,6 +92,15 @@ pub fn run_all_linters() -> Result<()> {
         Ok(()) => {}
         Err(e) => {
             error!("Markdown linting failed: {e}");
+            failed = true;
+        }
+    }
+
+    // Run local Markdown link checker
+    match run_lychee_linter() {
+        Ok(()) => {}
+        Err(e) => {
+            error!("Local Markdown link checking failed: {e}");
             failed = true;
         }
     }
@@ -164,6 +176,9 @@ pub fn execute_command(command: Option<&Commands>) -> Result<()> {
     match command {
         Some(Commands::Markdown) => {
             run_markdown_linter()?;
+        }
+        Some(Commands::Lychee) => {
+            run_lychee_linter()?;
         }
         Some(Commands::Yaml) => {
             run_yaml_linter()?;

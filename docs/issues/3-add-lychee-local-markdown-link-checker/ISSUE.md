@@ -118,7 +118,7 @@ The runner follows the external linter pattern already used by Markdown, TOML, a
 | T2  | TODO   | Register and re-export the new linter module.                                              |
 | T3  | TODO   | Add the `lychee` subcommand and run it from `all`.                                         |
 | T4  | TODO   | Update README feature, usage, tool-installation, and configuration documentation.          |
-| T5  | TODO   | Verify valid and deliberately invalid local-link scenarios with the direct CLI.            |
+| T5  | DONE   | Verify valid and deliberately invalid local-link scenarios with the direct CLI.            |
 | T6  | TODO   | Format and run the required validation commands, including the mandatory `cargo run` gate. |
 
 ## Acceptance criteria
@@ -147,7 +147,7 @@ The runner follows the external linter pattern already used by Markdown, TOML, a
 | V3  | `cargo run -- lychee`                                                         | Lychee runs offline from the repository root with `**/*.md` and `.github/**/*.md`, then succeeds.                  |
 | V4  | `cargo run`                                                                   | Mandatory self-linting repository gate exits with code 0.                                                          |
 | V5  | `.github/workflows/linting.yml` behavior                                      | Its `./target/debug/linter all` invocation installs lychee when absent and successfully self-lints the repository. |
-| V6  | Run `linter lychee` in a temporary directory containing an invalid local link | Lychee diagnostic is shown and the command exits nonzero without network access.                                   |
+| V6  | Run `linter lychee` in a temporary directory containing an invalid local link | Lychee diagnostic is shown and the command exits nonzero without network access. See `verification.md`.            |
 
 ## Risks and decisions needed
 

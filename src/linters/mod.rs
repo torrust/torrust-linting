@@ -1,5 +1,6 @@
 pub mod clippy;
 pub mod cspell;
+pub mod lychee;
 pub mod markdown;
 pub mod rustfmt;
 pub mod shellcheck;
@@ -8,6 +9,7 @@ pub mod yaml;
 
 pub use clippy::*;
 pub use cspell::*;
+pub use lychee::*;
 pub use markdown::*;
 pub use rustfmt::*;
 pub use shellcheck::*;
