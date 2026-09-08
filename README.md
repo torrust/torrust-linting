@@ -37,7 +37,7 @@ Add to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-torrust-linting = "0.1.0"
+torrust-linting = "0.2.0"
 ```
 
 #### Option 1: Use the complete CLI (easiest)
