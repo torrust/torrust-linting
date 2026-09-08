@@ -112,14 +112,15 @@ The runner follows the external linter pattern already used by Markdown, TOML, a
 
 ## Implementation plan
 
-| ID  | Status | Task                                                                                       |
-| --- | ------ | ------------------------------------------------------------------------------------------ |
-| T1  | TODO   | Add Cargo-based lychee installation helper and linter runner.                              |
-| T2  | TODO   | Register and re-export the new linter module.                                              |
-| T3  | TODO   | Add the `lychee` subcommand and run it from `all`.                                         |
-| T4  | TODO   | Update README feature, usage, tool-installation, and configuration documentation.          |
-| T5  | DONE   | Verify valid and deliberately invalid local-link scenarios with the direct CLI.            |
-| T6  | TODO   | Format and run the required validation commands, including the mandatory `cargo run` gate. |
+| ID  | Status | Task                                                                                                         |
+| --- | ------ | ------------------------------------------------------------------------------------------------------------ |
+| T1  | TODO   | Add Cargo-based lychee installation helper and linter runner.                                                |
+| T2  | TODO   | Register and re-export the new linter module.                                                                |
+| T3  | TODO   | Add the `lychee` subcommand and run it from `all`.                                                           |
+| T4  | TODO   | Update README feature, usage, tool-installation, and configuration documentation.                            |
+| T5  | DONE   | Verify valid and deliberately invalid local-link scenarios with the direct CLI.                              |
+| T6  | TODO   | Format and run the required validation commands, including the mandatory `cargo run` gate.                   |
+| T7  | TODO   | After the implementation PR merges, release the backward-compatible feature as version `0.2.0` on crates.io. |
 
 ## Acceptance criteria
 
@@ -137,6 +138,8 @@ The runner follows the external linter pattern already used by Markdown, TOML, a
 - [ ] The normal linter path does not enable online external URL checking.
 - [ ] README documentation lists lychee, its command, installation command, and `lychee.toml`.
 - [ ] `cargo fmt --check`, `cargo clippy -- -D warnings`, and `cargo run` exit successfully.
+- [ ] After the PR merges, the crate version is bumped from `0.1.0` to `0.2.0`, published to
+      crates.io, and released with the corresponding version tag.
 
 ## Verification plan
 
@@ -148,6 +151,7 @@ The runner follows the external linter pattern already used by Markdown, TOML, a
 | V4  | `cargo run`                                                                   | Mandatory self-linting repository gate exits with code 0.                                                          |
 | V5  | `.github/workflows/linting.yml` behavior                                      | Its `./target/debug/linter all` invocation installs lychee when absent and successfully self-lints the repository. |
 | V6  | Run `linter lychee` in a temporary directory containing an invalid local link | Lychee diagnostic is shown and the command exits nonzero without network access. See `verification.md`.            |
+| V7  | Post-merge release                                                            | `0.2.0` is available on crates.io and the matching Git tag/release points to the merged commit.                    |
 
 ## Risks and decisions needed
 
