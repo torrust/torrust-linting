@@ -78,33 +78,27 @@ cargo run --bin linter markdown --fix
 Based on answers in [questions.md](./questions.md), the following key decisions were made:
 
 1. **YAML Tool**: Use **yamlfmt** (not prettier) for YAML formatting
-
    - Reason: More focused tool, simpler to integrate
 
 2. **Fix Scope**: Fix the same files that current linter checks (Option B)
-
    - No expansion to additional file types
    - Consistent with existing linter behavior
 
 3. **Output Verbosity**: **Minimal** - show only "Fixed N files" summaries
-
    - Keep output clean and focused
    - Users can see detailed changes via `git diff`
    - Only display errors that still need attention
 
 4. **Error Handling**: **Auto-install missing tools** (Option D)
-
    - Matches current linter behavior
    - Seamless developer experience
    - Logs installation for transparency
 
 5. **Testing Strategy**: Unit + Integration + E2E + Manual
-
    - Comprehensive but focused
    - No property-based testing needed for initial version
 
 6. **Implementation**: Incremental - one linter at a time
-
    - Easier to review, test, and commit
    - Reduces risk and complexity
    - Can deploy partial functionality
@@ -113,9 +107,11 @@ Based on answers in [questions.md](./questions.md), the following key decisions 
    - Let git track changes naturally
    - Developers review with `git diff` before committing
 
-## �🔗 Related Documentation
+## Related Documentation
 
-- [Error Handling Guide](../../contributing/error-handling.md)
-- [Development Principles](../../development-principles.md)
-- [Linting Guide](../../contributing/linting.md)
-- [Logging Guide](../../contributing/logging-guide.md)
+- [Linter Auto-fix Specification](./specification.md)
+- [Linter Parallel Execution Feature](../linter-parallel-execution/README.md)
+
+## Additional Resources
+
+- [Torrust Linting README](../../../README.md)
