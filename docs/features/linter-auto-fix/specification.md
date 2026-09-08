@@ -402,18 +402,20 @@ This ensures developers format code locally before pushing.
 - Confirm git shows unstaged changes after fix
 - Test both `all` and individual linter modes
 
-## 📚 Related Documentation
+## Related Documentation
 
-- [Error Handling Guide](../../contributing/error-handling.md)
-- [Development Principles](../../development-principles.md)
-- [Linting Guide](../../contributing/linting.md)
+- [Linter Auto-fix Feature README](./README.md)
+- [Parallel Linter Execution Feature](../linter-parallel-execution/README.md)
+
+## Additional Resources
+
+- [Torrust Linting README](../../../README.md)
 
 ## 🔄 Future Enhancements (Not in Scope)
 
 Potential future additions (implement only if needed):
 
 1. **Parallel execution**: Run linters in parallel for better performance (~30% faster, 13s → 9s)
-
    - This is a separate feature with its own specification
    - See [Parallel Linter Execution Feature](../linter-parallel-execution/specification.md) for details
    - Compatible with auto-fix but not required for auto-fix functionality

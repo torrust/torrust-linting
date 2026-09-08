@@ -3,6 +3,7 @@ cspell
 dtolnay
 eprintln
 markdownlint
+mktemp
 MSRV
 noconfirm
 pacman

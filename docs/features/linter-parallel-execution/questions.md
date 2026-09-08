@@ -329,8 +329,12 @@ Once you've answered these questions and decided to implement:
 5. Begin incremental refactoring
 6. Test thoroughly before merging
 
-## 🔗 Related Documentation
+## Related Documentation
 
+- [Linter Parallel Execution README](./README.md)
 - [Linter Parallel Execution Specification](./specification.md)
 - [Linter Auto-fix Feature](../linter-auto-fix/specification.md)
-- [Linting Guide](../../contributing/linting.md)
+
+## Additional Resources
+
+- [Torrust Linting README](../../../README.md)

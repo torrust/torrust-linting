@@ -355,8 +355,12 @@ If/when this feature is implemented:
 ## 📚 Related Documentation
 
 - [Linter Auto-fix Feature](../linter-auto-fix/specification.md) - May interact with parallel execution
-- [Development Principles](../../development-principles.md)
-- [Linting Guide](../../contributing/linting.md)
+- [Linter Parallel Execution README](./README.md)
+- [Linter Parallel Execution Questions](./questions.md)
+
+## Additional Resources
+
+- [Torrust Linting README](../../../README.md)
 
 ## � Alternative Approach: Process-Level Parallelization
 
