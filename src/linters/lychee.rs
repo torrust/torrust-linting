@@ -49,17 +49,22 @@ pub fn run_lychee_linter() -> Result<()> {
     let t = Instant::now();
     info!(target: "lychee", "Checking local Markdown links and fragments...");
 
-    let output = Command::new("lychee")
-        .current_dir(&repo_root)
-        .args([
-            "--offline",
-            "--no-progress",
-            "--exclude-path",
-            "(^|/)target/",
-            "**/*.md",
-            ".github/**/*.md",
-        ])
-        .output()?;
+    let mut command = Command::new("lychee");
+    command.current_dir(&repo_root).args([
+        "--offline",
+        "--no-progress",
+        "--exclude-path",
+        "(^|/)target/",
+        "--exclude-path",
+        "(^|/)\\.terraform/",
+        "**/*.md",
+    ]);
+
+    if repo_root.join(".github").is_dir() {
+        command.arg(".github/**/*.md");
+    }
+
+    let output = command.output()?;
 
     if output.status.success() {
         info!(target: "lychee", "All local Markdown links passed checking! ({:.3}s)", t.elapsed().as_secs_f64());

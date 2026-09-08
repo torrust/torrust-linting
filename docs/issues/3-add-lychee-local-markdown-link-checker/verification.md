@@ -11,11 +11,12 @@ A temporary directory was created with `broken.md` containing:
 ### Command
 
 ```sh
+LINTER_BINARY="$(pwd)/target/debug/linter"
 tmp_dir=$(mktemp -d)
 printf '%s\n' '[Broken local link](missing.md)' > "$tmp_dir/broken.md"
 cd "$tmp_dir"
 set +e
-linter lychee
+"$LINTER_BINARY" lychee
 exit_code=$?
 set -e
 printf '\nVerification exit code: %s\n' "$exit_code"
